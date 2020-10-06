@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         String input = "";
-        String myPassword = "myPassword123";
+        String myPassword = "password123";
 
         String salt = PasswordUtils.getSalt(30);
         String password = PasswordUtils.generateSecurePassword(myPassword, salt);
