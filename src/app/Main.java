@@ -8,10 +8,14 @@ public class Main {
 
     public static void main(String[] args) {
         String input = "";
-        String myPassword = "password123";
+        // This is password
+        String password = "password123";
 
+        // This is stored to database
         String salt = PasswordUtils.getSalt(30);
-        String password = PasswordUtils.generateSecurePassword(myPassword, salt);
+
+        // This is stored to database
+        String encryptedPassword = PasswordUtils.generateSecurePassword(password, salt);
 
         Scanner scanner = new Scanner(System.in);
 
@@ -19,7 +23,8 @@ public class Main {
 
         while (true) {
             input = scanner.next();
-            boolean passwordMatch = PasswordUtils.verifyUserPassword(input, password, salt);
+            // Here we compare user input with database encrypted password
+            boolean passwordMatch = PasswordUtils.verifyUserPassword(input, encryptedPassword, salt);
 
             if (passwordMatch) {
                 System.out.println("Welcome to the application!");
